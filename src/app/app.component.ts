@@ -40,20 +40,17 @@ export class AppComponent {
   contactToEdit?: Contact;
   editIndex?: number;
 
-  // Add new contact
   showAddForm() {
     this.contactToEdit = undefined;
     this.showForm = true;
   }
 
-  // Edit existing contact
   editContact(index: number) {
     this.contactToEdit = this.contacts()[index];
     this.editIndex = index;
     this.showForm = true;
   }
 
-  // Save changes (both add and edit)
   saveContact(contact: Contact) {
     if (this.editIndex !== undefined) {
       this.contactService.updateContact(this.editIndex, contact);
@@ -63,14 +60,12 @@ export class AppComponent {
     this.cancelForm();
   }
 
-  // Delete contact
   deleteContact(index: number) {
     if (confirm('Delete this contact?')) {
       this.contactService.deleteContact(index);
     }
   }
 
-  // Reset form state
   cancelForm() {
     this.showForm = false;
     this.contactToEdit = undefined;

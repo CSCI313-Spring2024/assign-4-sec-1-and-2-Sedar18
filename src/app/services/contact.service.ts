@@ -1,12 +1,12 @@
 import { Injectable, signal } from '@angular/core';
 import { Contact } from '../models/contact.model';
-import { CONTACTS } from '../../assets/contacts'; // Updated import
+import { CONTACTS } from '../../assets/contacts';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContactService {
-  private contacts = signal<Contact[]>(CONTACTS); // Use the imported constant directly
+  private contacts = signal<Contact[]>(CONTACTS);
 
   getContacts() {
     return this.contacts.asReadonly();
